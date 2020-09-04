@@ -8,5 +8,6 @@ FROM gentoo/stage3-amd64:latest
 COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 
 # continue with image build ...
-RUN emerge -qv www-servers/apache # or whichever packages you need
+RUN emerge -qv sys-kernel/gentoo-kernel-bin # or whichever packages you need
+
 
