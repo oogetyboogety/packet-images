@@ -8,5 +8,6 @@ FROM gentoo/stage3-amd64:latest
 COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 
 # continue with image build ...
-RUN emerge -qv sys-kernel/gentoo-kernel-bin # or whichever packages you need
+RUN touch /etc/portage/package.use/linux && echo "sys-kernel/gentoo-kernel-bin initramfs" >> /etc/portage/package.use/linux
+RUN emerge -qv sys-kernel/linux-firmware && emerge -qv sys-kernel/gentoo-kernel-bin # or whichever packages you need
 
